@@ -116,7 +116,7 @@ class MainActivity : BaseActivity(), GetRawData.OnDownloadComplete,
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         val queryResult = sharedPref.getString(FLICKR_QUERY, "")
 
-        if (queryResult.isNotEmpty()) {
+        if (queryResult!!.isNotEmpty()) {
             val url = createUri("https://api.flickr.com/services/feeds/photos_public.gne", queryResult,"en-us", true)
             val getRawData = GetRawData(this)
             getRawData.execute(url)
